@@ -1,11 +1,16 @@
-import './App.css';
+import React, {Component} from 'react'
+import { Navbar, Nav, }  from 'react-bootstrap'
+import {BrowserRouter} from 'react-router-dom'
+import Header from './component/Header'
 
-function App() {
+export default class App extends Component{
+render(){
   return (
-    <div className="App">
-      App fff
-    </div>
-  );
+      <BrowserRouter>
+        <Header/>
+      </BrowserRouter>
+        
+    );
 }
-
-export default App;
+  
+}
