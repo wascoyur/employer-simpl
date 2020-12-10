@@ -8,7 +8,10 @@ render(){
 return(
   <Navbar navbar="expand"  bg="dark">
     <Nav.Item>
-        <Link to="/" >Entity List</Link>
+        <Link to="/" >Home</Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Link to="/list/:id" >Entity List</Link>
       </Nav.Item>
       <Nav.Item>
         <Link to="/add">Entity Add</Link>
