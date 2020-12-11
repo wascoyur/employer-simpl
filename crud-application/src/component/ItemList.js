@@ -1,9 +1,25 @@
-import React, {Component} from 'react'
+import React from 'react'
+import {Conainer, ListGroup} from 'react-bootstrap'
 
-export default class ItemList extends Component{
-  render(){
+const ItemList = props =>{
+
+  const data= [
+    {name:'pet', id:23, stringAttribute:'swe'},
+    {name:'mert', id:45, stringAttribute:'swe'}
+  ]
+  const {entity} = props
+  let items = entity.map(item =>{
     return(
-      <div>ItemList</div>
+      <ListGroup.Item>{item.name}</ListGroup.Item>
+    )
+  })  
+  
+  return(
+        <ListGroup>
+          { items }
+        </ListGroup>
     )
 }
-}
+
+export default ItemList  
+

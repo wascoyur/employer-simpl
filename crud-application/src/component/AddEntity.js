@@ -4,29 +4,32 @@ import Entity from './Entity'
 
 export default class AddEntity extends Component{
   state = {
-    entity: Entity
+    entity: Entity,
+    countEntity: 0
   }
   render(){
-    const{entity} = this.state
+    const{entity, countEntity} = this.state
   return(
     <Container>
       <Row>
         <Col>
           <Entity/>
-        </Col>
+        </Col>       
         <Col>
           <Button
-            variant="primary"
-            size="sm"
-            onClick ={ ()=>{this.props.addItem(this.state.entity)} }
-            >Добавить сущность в список</Button>
+          disabled
+          >{ this.props.countItem }</Button>
         </Col>
         
       </Row>
       <Row>
         
       </Row>
-
+<Button
+  variant="primary"
+  size="sm"
+  onClick ={ ()=>{this.props.addItem(this.state.entity)} }
+  >Добавить сущность в список</Button>
 </Container>
 )
   }

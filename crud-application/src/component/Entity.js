@@ -4,16 +4,24 @@ import {Container, Row, Col} from 'react-bootstrap'
 
 export default class Entity extends Component{
   
-  constructor(){
-    super();
-    this.state={
-      name:'nameOf',
+  state={
+    template:{
+      name:['Этот', 'подход', 'будет', 'работать', 'для', 'конкретного', 'случая'],
       id:1,
       parent: 'null',
       children: 'null',
       number: 0,
-      stringAtribute: 'str'
+      stringAtribute: 'str' 
+      },
+    current:{
+      name:'',
+      id:0,
+      parent: null,
+      children: null,
+      number: 0,
+      stringAtribute: ''
     }
+         
   }
   render(){
 const {name, id, parent, children, number, stringAtribute} = this.state

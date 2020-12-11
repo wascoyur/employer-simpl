@@ -12,6 +12,13 @@ state = {
 entity: []
 
 }
+entityCount = ()=>{  
+  const {entity} = this.state
+  
+  return(
+    entity.length
+  )
+}
 addItem = (item)=>{
   if (item) {
     this.setState((state) =>{
@@ -24,7 +31,12 @@ render(){
     <Fragment>
       <BrowserRouter>
         <Header/>      
-        <Route path = "/" component = {ItemList} exact/>
+        <Route
+          path = "/"
+          render = {(props)=>(
+            <ItemList  entity = {this.state.entity}/>
+          )}
+          exact/>
         <Route
           path = "/edit"
           render = {(props) => (
@@ -33,8 +45,11 @@ render(){
         <Route
         path = "/add"
         render = { (props) => (
-          <AddEntity {...props} addItem = { this.addItem}  /> 
-          )}        
+          <AddEntity
+          addItem = { this.addItem }
+          countItem={this.entityCount()} /> 
+          )} 
+          exact       
         />
       </BrowserRouter>
     </Fragment>
