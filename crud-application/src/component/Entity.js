@@ -171,9 +171,8 @@ export default class Entity extends Component {
 						</div>
 						
 						<button
-							onClick={()=> {
-								return (this.props.addItem(this.state))
-							}}
+							onClick={()=> this.props.addItem(this.state)}
+							
 							className="btn btn-primary">
 							Отправить в БД
 						</button>

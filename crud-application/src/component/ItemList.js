@@ -130,20 +130,14 @@ export default class ItemList extends Component{
                   "list-group-item " +
                   (index === currentIndex ? "active" : "")
                 }
-                onClick={() => this.setActiveTutorial(item, index)}
+                onClick={() => this.setActiveEntity(item, index)}
                 key={index}
               >
                 {item.name}
               </li>
             ))}
           </ul>
-        
-          {/*<button*/}
-          {/*  className="m-3 btn btn-sm btn-danger"*/}
-          {/*  onClick={this.removeAllTutorials}*/}
-          {/*>*/}
-          {/*  Remove All*/}
-          {/*</button>*/}
+       
         </div>
         <div className="col-md-6">
           {currentEntity ? (
@@ -151,7 +145,7 @@ export default class ItemList extends Component{
               <h4>Сущьность</h4>
               <div>
                 <label>
-                  <strong>Имя сущьности:</strong>
+                  <strong>Имя сущности:</strong>
                 </label>{" "}
                 {currentEntity.name}
               </div>
@@ -169,7 +163,7 @@ export default class ItemList extends Component{
               </div>
             
               <Link
-                to={"/list/" + currentEntity.id}
+                to={"/list/" + currentEntity.name}
                 className="badge badge-warning"
               >
                 Edit
@@ -178,7 +172,7 @@ export default class ItemList extends Component{
           ) : (
             <div>
               <br />
-              <p>Please click on a Tutorial...</p>
+              <p>Выберите из списка...</p>
             </div>
           )}
         </div>
