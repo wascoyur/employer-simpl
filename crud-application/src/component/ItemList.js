@@ -59,9 +59,15 @@ export default class ItemList extends Component{
         console.log(e);
       });
   }
+  onChangeSearchName(e){
+      const  searchName = e.target.value;
+      this.setState({
+        searchNameEntity:searchName
+      })
+  }
   render(){
-    const { searchTitle, tutorials, currentTutorial, currentIndex } = this.state;
-  
+    const {searchNameEntity, entityList, currentEntity, currentIndex } = this.state;
+    const {entity} = this.props
     return (
       <div className="list row">
         <div className="col-md-8">
@@ -69,8 +75,8 @@ export default class ItemList extends Component{
             <input
               type="text"
               className="form-control"
-              placeholder="Search by title"
-              value={searchTitle}
+              placeholder="Искать по имени.."
+              value={searchNameEntity}
               onChange={this.onChangeSearchTitle}
             />
             <div className="input-group-append">
@@ -79,26 +85,26 @@ export default class ItemList extends Component{
                 type="button"
                 onClick={this.searchNameEntity}
               >
-                Search
+                Поиск сущности
               </button>
             </div>
           </div>
         </div>
         <div className="col-md-6">
-          <h4>Tutorials List</h4>
+          <h4>Список сущностей в БД:</h4>
         
           <ul className="list-group">
-            {tutorials &&
-            tutorials.map((tutorial, index) => (
+            {entityList &&
+            entityList.map((entityList, index) => (
               <li
                 className={
                   "list-group-item " +
                   (index === currentIndex ? "active" : "")
                 }
-                onClick={() => this.setActiveTutorial(tutorial, index)}
+                onClick={() => this.setActiveTutorial(entityList, index)}
                 key={index}
               >
-                {tutorial.title}
+                {entityList.name}
               </li>
             ))}
           </ul>
@@ -111,30 +117,56 @@ export default class ItemList extends Component{
           </button>
         </div>
         <div className="col-md-6">
-          {currentTutorial ? (
+          <h4>Список сущностей на клиенте:</h4>
+        
+          <ul className="list-group">
+            {entity &&
+            entity.map((item, index) => (
+              <li
+                className={
+                  "list-group-item " +
+                  (index === currentIndex ? "active" : "")
+                }
+                onClick={() => this.setActiveTutorial(item, index)}
+                key={index}
+              >
+                {item.name}
+              </li>
+            ))}
+          </ul>
+        
+          {/*<button*/}
+          {/*  className="m-3 btn btn-sm btn-danger"*/}
+          {/*  onClick={this.removeAllTutorials}*/}
+          {/*>*/}
+          {/*  Remove All*/}
+          {/*</button>*/}
+        </div>
+        <div className="col-md-6">
+          {currentEntity ? (
             <div>
-              <h4>Tutorial</h4>
+              <h4>Сущьность</h4>
               <div>
                 <label>
-                  <strong>Title:</strong>
+                  <strong>Имя сущьности:</strong>
                 </label>{" "}
-                {currentTutorial.title}
+                {currentEntity.name}
               </div>
               <div>
                 <label>
-                  <strong>Description:</strong>
+                  <strong>searchNameEntity</strong>
                 </label>{" "}
-                {currentTutorial.description}
+                {currentEntity.searchNameEntity}
               </div>
               <div>
                 <label>
-                  <strong>Status:</strong>
+                  <strong>Статус:</strong>
                 </label>{" "}
-                {currentTutorial.published ? "Published" : "Pending"}
+                {currentEntity.published ? "Published" : "Pending"}
               </div>
             
               <Link
-                to={"/tutorials/" + currentTutorial.id}
+                to={"/list/" + currentEntity.id}
                 className="badge badge-warning"
               >
                 Edit

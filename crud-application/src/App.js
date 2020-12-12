@@ -37,6 +37,12 @@ render(){
             <ItemList  entity = {this.state.entity}/>
           )}
           exact/>
+          <Route
+          path = "/list/:id"
+          render = {(props)=>(
+            <Entity  entity = {this.state.entity}/>
+          )}
+          exact/>
         <Route
           path = "/edit"
           render = {(props) => (
