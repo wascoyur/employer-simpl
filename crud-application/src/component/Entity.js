@@ -21,7 +21,7 @@ export default class Entity extends Component {
     });
   }
 	timestamp = ()=>{
-  	return Date.now()
+  	return new Date()
 	}
   onChangeParent=(e)=>{
     this.setState({
