@@ -7,31 +7,36 @@ export default class Entity extends Component {
 		name: 'curent_Name',
 		id: 0,
 		parent: null,
-		children: null,
-		number: 0,
+		children: [],
 		stringAtribute: '',
+		timestamp: 0
   };
-  
+  resetState(){
+  	this.setState({})
+	}
   onChangeName = (e) => {
     this.setState({
-      name: e.target.value
+      name: e.target.value,
+			timestamp:this.timestamp()
     });
   }
-
-  onChangeParent(e) {
+	timestamp = ()=>{
+  	return Date.now()
+	}
+  onChangeParent=(e)=>{
     this.setState({
       parent: e.target.value
     });
   }
 	
-	onChangeChildren(e) {
+	onChangeChildren=(e)=>{
 		this.setState({
 			children: e.target.value
 		});
 	}
-	onChangeStringAtribute(e) {
+	onChangeStringAtribute=(e)=> {
 		this.setState({
-			stringAtribute: e.target.stringAtribute
+			stringAtribute: e.target.value
 		});
 	}
 
@@ -66,6 +71,12 @@ export default class Entity extends Component {
       submitted: false
     });
   }
+  componentDidMount() {
+  
+	}
+	componentDidUpdate(prevProps, prevState, snapshot) {
+	}
+	
 	render() {
 		const {
 			name,
@@ -104,7 +115,7 @@ export default class Entity extends Component {
 							<input
 								type="text"
 								className="form-control"
-								id="description"
+								id="stringAtribute"
 								required
 								value={this.state.stringAtribute}
 								onChange={this.onChangeStringAtribute}
@@ -112,7 +123,7 @@ export default class Entity extends Component {
 							/>
 						</div>
 						<div className="form-group">
-							<label htmlFor="description">Родительский элемент</label>
+							<label htmlFor="parent">Родительский элемент</label>
 							<input
 								type="text"
 								className="form-control"
@@ -122,10 +133,48 @@ export default class Entity extends Component {
 								onChange={this.onChangeParent}
 								name="parent"
 							/>
+						</div><div className="form-group">
+							<label htmlFor="children">Дочерние элементы</label>
+							<input
+								type="text"
+								className="form-control"
+								id="children"
+								//required
+								value={this.state.children}
+								onChange={this.onChangeChildren}
+								name="children"
+							/>
+						</div><div className="form-group">
+							<label htmlFor="timestamp">Время создания</label>
+							<input
+								type="text"
+								className="form-control"
+								id="timestamp"
+								//required
+								value={this.state.timestamp}
+								onChange={()=>{
+									console.log('redo timestamp???')}}
+								name="timestamp"
+							/>
+						</div><div className="form-group">
+							<label htmlFor="id">Номер элемента</label>
+							<input
+								type="text"
+								className="form-control"
+								id="id"
+								//required
+								value={this.state.id}
+								onChange={()=>{
+									console.log('change id???')}}
+								name="id"
+							/>
 						</div>
 						
-						
-						<button onClick={this.saveTutorial} className="btn btn-success">
+						<button
+							onClick={()=> {
+								return (this.props.addItem(this.state))
+							}}
+							className="btn btn-primary">
 							Отправить в БД
 						</button>
 					</div>

@@ -12,7 +12,9 @@ export default class AddEntity extends Component{
   return(
     
       <div>
-        <Entity/>
+        <Entity
+          addItem = { this.props.addItem }
+        />
         
         <div className="form-group">
           <label htmlFor="title">Title</label>
@@ -33,13 +35,13 @@ export default class AddEntity extends Component{
           </Button>
         </div>
         
-        <div className="form-group">
-          <Button
-            variant="primary"
-            size="sm"
-            onClick ={ ()=>{this.props.addItem(this.state.entity)} }
-          >Добавить сущность в список</Button>
-        </div>
+        {/*<div className="form-group">*/}
+        {/*  <Button*/}
+        {/*    variant="primary"*/}
+        {/*    size="sm"*/}
+        {/*    onClick ={ ()=>{this.props.addItem(this.state.entity)} }*/}
+        {/*  >Добавить сущность в список</Button>*/}
+        {/*</div>*/}
         
         
       </div>

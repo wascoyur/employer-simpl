@@ -25,7 +25,7 @@ class GetlistService {
 	}
 
 	findByTitle(title) {
-		return http.get(`/list?title=${title}`);
+		return http.get(`/list?stringAtribute=${title}`);
 	}
 }
 

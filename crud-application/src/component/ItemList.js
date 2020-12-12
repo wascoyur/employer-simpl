@@ -14,8 +14,11 @@ export default class ItemList extends Component{
     componentDidMount = ()=> {
       this.retriveEntitys();
     }
+  componentDidUpdate(prevProps, prevState, snapshot) {
+      if (prevState === this.state)return
+    }
   
-    retriveEntitys=()=>{
+  retriveEntitys=()=>{
       GetlistService.getAll()
         .then(response =>{
           this.setState({

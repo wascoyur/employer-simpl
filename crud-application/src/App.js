@@ -19,14 +19,18 @@ entityCount = ()=>{
     entity.length
   )
 }
-addItem = (item)=>{
-  if (item) {
+  addItem = (item)=>{
+    const { entity } = this.state
+    const isExsist = entity.filter(e => e.name == item.name)
+    if (isExsist.length >0)return
     this.setState((state) =>{
       return(state.entity.push(item))
     })
-  }
 }
-render(){
+
+
+  
+  render(){
   return (
     <Fragment>
       <BrowserRouter>
