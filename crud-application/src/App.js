@@ -32,7 +32,7 @@ render(){
       <BrowserRouter>
         <Header/>      
         <Route
-          path = "/"
+          path = "/list"
           render = {(props)=>(
             <ItemList  entity = {this.state.entity}/>
           )}

@@ -1,7 +1,7 @@
-import {axios} from 'axios';
+import axios from 'axios';
 
 export default axios.create({
-  baseURL: "http://b5e2409e87de.ngrok.io/api",
+  baseURL: "http://localhost:8080/api",
   headers: {
     "Content-type":"application/json"
   }

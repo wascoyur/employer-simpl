@@ -11,7 +11,7 @@ return(
         <Link to="/" >Home</Link>
       </Nav.Item>
       <Nav.Item>
-        <Link to="/list/:id" >Entity List</Link>
+        <Link to="/list" >Entity List</Link>
       </Nav.Item>
       <Nav.Item>
         <Link to="/add">Entity Add</Link>

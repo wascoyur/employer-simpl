@@ -29,4 +29,4 @@ class GetlistService {
 	}
 }
 
-export default GetlistService();
+export default new GetlistService();

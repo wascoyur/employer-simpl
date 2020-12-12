@@ -1,60 +1,53 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
+import GetlistService from '../services/dao-service'
 
 export default class Entity extends Component {
 	state = {
-		template: {
-			name: [
-				'Этот',
-				'подход',
-				'будет',
-				'работать',
-				'для',
-				'конкретного',
-				'случая',
-			],
-			id: 1,
-			parent: 'null',
-			children: 'null',
-			number: 0,
-			stringAtribute: 'str',
-		},
-		current: {
-			name: 'curName',
-			id: 0,
-			parent: null,
-			children: null,
-			number: 0,
-			stringAtribute: '',
-		},
+		name: 'curent_Name',
+		id: 0,
+		parent: null,
+		children: null,
+		number: 0,
+		stringAtribute: '',
   };
   
   onChangeName = (e) => {
     this.setState({
-      title: e.target.value
+      name: e.target.value
     });
   }
 
-  onChangeDescription(e) {
+  onChangeParent(e) {
     this.setState({
-      description: e.target.value
+      parent: e.target.value
     });
   }
+	
+	onChangeChildren(e) {
+		this.setState({
+			children: e.target.value
+		});
+	}
+	onChangeStringAtribute(e) {
+		this.setState({
+			stringAtribute: e.target.stringAtribute
+		});
+	}
 
-  saveTutorial() {
+  saveEntity() {
     var data = {
-      title: this.state.title,
-      description: this.state.description
+      name: this.state.name,
+			stringAtribute: this.state.stringAtribute
     };
-
-    TutorialDataService.create(data)
+	
+		GetlistService.create(data)
       .then(response => {
         this.setState({
           id: response.data.id,
-          title: response.data.title,
-          description: response.data.description,
+          name: response.data.name,
+					stringAtribute: response.data.stringAtribute,
           published: response.data.published,
-
           submitted: true
         });
         console.log(response.data);
@@ -64,13 +57,12 @@ export default class Entity extends Component {
       });
   }
 
-  newTutorial() {
+  newEntity() {
     this.setState({
       id: null,
-      title: "",
-      description: "",
+      name: "",
+			stringAtribute: "",
       published: false,
-
       submitted: false
     });
   }
@@ -82,14 +74,63 @@ export default class Entity extends Component {
 			children,
 			number,
 			stringAtribute,
-		} = this.state.current;
+		} = this.state;
 		return (
-			<Form>
-				<Form.Group>
-					<Form.Label>Name: {name} </Form.Label>
-					<Form.Control onChange={this.changeControl()} />
-				</Form.Group>
-			</Form>
+			<div className="submit-form">
+				{this.state.submitted ? (
+					<div>
+						<h4>Сущность отправлена в БД</h4>
+						<button className="btn btn-success" onClick={this.newEntity}>
+							Add
+						</button>
+					</div>
+				) : (
+					<div>
+						<div className="form-group">
+							<label htmlFor="name">Имя сущности</label>
+							<input
+								type="text"
+								className="form-control"
+								id="name"
+								required
+								value={this.state.name}
+								onChange={this.onChangeName}
+								name="title"
+							/>
+						</div>
+						
+						<div className="form-group">
+							<label htmlFor="description">Строковый атрибут</label>
+							<input
+								type="text"
+								className="form-control"
+								id="description"
+								required
+								value={this.state.stringAtribute}
+								onChange={this.onChangeStringAtribute}
+								name="stringAtribute"
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="description">Родительский элемент</label>
+							<input
+								type="text"
+								className="form-control"
+								id="parent"
+								//required
+								value={this.state.parent}
+								onChange={this.onChangeParent}
+								name="parent"
+							/>
+						</div>
+						
+						
+						<button onClick={this.saveTutorial} className="btn btn-success">
+							Отправить в БД
+						</button>
+					</div>
+				)}
+			</div>
 		);
 	}
 }
