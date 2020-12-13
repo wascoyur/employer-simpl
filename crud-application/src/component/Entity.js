@@ -76,6 +76,10 @@ export default class Entity extends Component {
 	}
 	componentDidUpdate(prevProps, prevState, snapshot) {
 	}
+	submit(obj){
+		this.props.addItem(this.state)
+		console.log(obj)
+	}
 	
 	render() {
 		const {
@@ -171,7 +175,8 @@ export default class Entity extends Component {
 						</div>
 						
 						<button
-							onClick={()=> this.props.addItem(this.state)}
+							//onClick={()=> this.props.addItem(this.state)}
+							onClick={()=> this.submit(this.state)}
 							
 							className="btn btn-primary">
 							Отправить в БД
