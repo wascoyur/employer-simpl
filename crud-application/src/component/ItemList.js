@@ -27,7 +27,7 @@ export default class ItemList extends Component{
           console.log('response.data:',response.data)
         })
     }
-    refreshList(){
+    refreshList=()=>{
       this.retriveEntitys();
       this.setState({
         currrentEntity: null,
@@ -40,7 +40,7 @@ export default class ItemList extends Component{
       currentIndex: index
     });
   }
-  removeAllEntitys() {
+  removeAllEntitys=()=> {
     GetlistService.deleteAll()
       .then(response => {
         console.log(response.data);
@@ -50,7 +50,7 @@ export default class ItemList extends Component{
         console.log(e);
       });
   }
-  searchNameEntity() {
+  searchNameEntity=()=> {
     GetlistService.findByTitle(this.state.searchNameEntity)
       .then(response => {
         this.setState({
@@ -62,7 +62,7 @@ export default class ItemList extends Component{
         console.log(e);
       });
   }
-  onChangeSearchName(e){
+  onChangeSearchName=(e)=>{
       const  searchName = e.target.value;
       this.setState({
         searchNameEntity:searchName
@@ -80,7 +80,7 @@ export default class ItemList extends Component{
               className="form-control"
               placeholder="Искать по имени.."
               value={searchNameEntity}
-              onChange={this.onChangeSearchTitle}
+              onChange={this.onChangeSearchName}
             />
             <div className="input-group-append">
               <button
@@ -104,7 +104,7 @@ export default class ItemList extends Component{
                   "list-group-item " +
                   (index === currentIndex ? "active" : "")
                 }
-                onClick={() => this.setActiveTutorial(entityList, index)}
+                onClick={() => this.setActiveEntity(entityList, index)}
                 key={index}
               >
                 {entityList.name}
@@ -112,15 +112,15 @@ export default class ItemList extends Component{
             ))}
           </ul>
         
-          <button
-            className="m-3 btn btn-sm btn-danger"
-            onClick={this.removeAllTutorials}
-          >
-            Remove All
-          </button>
+          {/*<button*/}
+          {/*  className="m-3 btn btn-sm btn-danger"*/}
+          {/*  onClick={this.removeAllTutorials}*/}
+          {/*>*/}
+          {/*  Remove All*/}
+          {/*</button>*/}
         </div>
         <div className="col-md-6">
-          <h4>Список сущностей на клиенте:</h4>
+          <h4>Список элементов на клиенте: {this.props.entity.length}</h4>
         
           <ul className="list-group">
             {entity &&
@@ -142,18 +142,24 @@ export default class ItemList extends Component{
         <div className="col-md-6">
           {currentEntity ? (
             <div>
-              <h4>Сущьность</h4>
+              <h4>Сущность</h4>
               <div>
                 <label>
                   <strong>Имя сущности:</strong>
-                </label>{" "}
+                </label>{' '}
                 {currentEntity.name}
               </div>
               <div>
                 <label>
-                  <strong>searchNameEntity</strong>
+                  <strong>Родитель</strong>
                 </label>{" "}
-                {currentEntity.searchNameEntity}
+                {currentEntity.parent}
+              </div>
+              <div>
+                <label>
+                  <strong>Потомки</strong>
+                </label>{" "}
+                {currentEntity.children}
               </div>
               <div>
                 <label>
@@ -161,9 +167,21 @@ export default class ItemList extends Component{
                 </label>{" "}
                 {currentEntity.published ? "Published" : "Pending"}
               </div>
+              <div>
+                <label>
+                  <strong>Дата создания:</strong>
+                </label>{" "}
+                {currentEntity.timestamp.toString()}
+              </div>
+              <div>
+                <label>
+                  <strong>Строковый атрибут:</strong>
+                </label>{" "}
+                {currentEntity.stringAtribute}
+              </div>
             
               <Link
-                to={"/list/" + currentEntity.name}
+                to={"/edit/" + currentEntity.name}
                 className="badge badge-warning"
               >
                 Edit

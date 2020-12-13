@@ -10,11 +10,9 @@ import Entity from './component/Entity'
 export default class App extends Component{
 state = {
 entity: []
-
 }
 entityCount = ()=>{  
   const {entity} = this.state
-  
   return(
     entity.length
   )
@@ -27,8 +25,6 @@ entityCount = ()=>{
       return(state.entity.push(item))
     })
 }
-
-
   
   render(){
   return (

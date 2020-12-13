@@ -17,21 +17,21 @@ export default class AddEntity extends Component{
         />
         
         <div className="form-group">
-          <label htmlFor="title">Title</label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            required
-            value={this.state.title}
-            onChange={this.onChangeTitle}
-            name="title"
-          />
+          <label htmlFor="title"></label>
+          {/*<input*/}
+          {/*  type="text"*/}
+          {/*  className="form-control"*/}
+          {/*  id="title"*/}
+          {/*  required*/}
+          {/*  value={this.state.title}*/}
+          {/*  onChange={this.onChangeTitle}*/}
+          {/*  name="title"*/}
+          {/*/>*/}
         </div>
         <div className="form-group">
           <Button
             disabled
-          >{ this.props.countItem } Количество сущностей
+          >{ this.props.countItem } Элементов в базе
           </Button>
         </div>
         

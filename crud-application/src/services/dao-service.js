@@ -24,8 +24,8 @@ class GetlistService {
 		return http.delete(`/list`);
 	}
 
-	findByTitle(title) {
-		return http.get(`/list?stringAtribute=${title}`);
+	findByTitle(strAtr) {
+		return http.get(`/list?stringAtribute=${strAtr}`);
 	}
 }
 

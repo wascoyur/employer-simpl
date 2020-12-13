@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Form } from 'react-bootstrap';
 import GetlistService from '../services/dao-service'
+import Pool from '../services/db-access'
 
 export default class Entity extends Component {
 	state = {
@@ -45,21 +46,25 @@ export default class Entity extends Component {
       name: this.state.name,
 			stringAtribute: this.state.stringAtribute
     };
-	
-		GetlistService.create(data)
-      .then(response => {
-        this.setState({
-          id: response.data.id,
-          name: response.data.name,
-					stringAtribute: response.data.stringAtribute,
-          published: response.data.published,
-          submitted: true
-        });
-        console.log(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
+		Pool.query(
+			'INSERT INTO main-taible(name, id, string_attr, children, time_create) VALUES '
+			 			 `(${this.state.name},[value-2],[value-3],[value-4],[value-5])`
+		)
+		// GetlistService.create(data)
+    //   .then(response => {
+    //     this.setState({
+    //       id: response.data.id,
+    //       name: response.data.name,
+		// 			stringAtribute: response.data.stringAtribute,
+    //       published: response.data.published,
+    //       submitted: true
+    //     });
+    //     console.log(response.data);
+    //   })
+    //   .catch(e => {
+    //     console.log(e);
+    //   });
+		
   }
 
   newEntity() {
@@ -79,6 +84,8 @@ export default class Entity extends Component {
 	submit(obj){
 		this.props.addItem(this.state)
 		console.log(obj)
+		//GetlistService.create(obj)
+		
 	}
 	
 	render() {
@@ -148,19 +155,7 @@ export default class Entity extends Component {
 								onChange={this.onChangeChildren}
 								name="children"
 							/>
-						</div><div className="form-group">
-							<label htmlFor="timestamp">Время создания</label>
-							<input
-								type="text"
-								className="form-control"
-								id="timestamp"
-								//required
-								value={this.state.timestamp}
-								onChange={()=>{
-									console.log('redo timestamp???')}}
-								name="timestamp"
-							/>
-						</div><div className="form-group">
+						<div className="form-group">
 							<label htmlFor="id">Номер элемента</label>
 							<input
 								type="text"
@@ -173,6 +168,21 @@ export default class Entity extends Component {
 								name="id"
 							/>
 						</div>
+						</div><div className="form-group">
+							<label htmlFor="timestamp">Время создания</label>
+							<input
+								type="text"
+								className="form-control"
+								id="timestamp"
+								//required
+								disabled
+								value={this.state.timestamp}
+								onChange={()=>{
+									console.log('redo timestamp???')}}
+								name="timestamp"
+							/>
+						</div>
+						
 						
 						<button
 							//onClick={()=> this.props.addItem(this.state)}
