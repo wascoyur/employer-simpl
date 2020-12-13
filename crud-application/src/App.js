@@ -46,7 +46,7 @@ entityCount = ()=>{
         <Route
           path = "/edit"
           render = {(props) => (
-          <EditEntity {...props} />) }
+          <EditEntity entity = {this.state.entity} />) }
          />
         <Route
         path = "/add"

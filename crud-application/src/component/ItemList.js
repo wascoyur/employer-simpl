@@ -183,6 +183,7 @@ export default class ItemList extends Component{
               <Link
                 to={"/edit/" + currentEntity.name}
                 className="badge badge-warning"
+                
               >
                 Edit
               </Link>
