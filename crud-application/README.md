@@ -17,4 +17,4 @@
     2. Файлы исходных текстов программы и ее скомпилированного экземпляра;
     3. Документ в MS-Word (краткое описание работы программы).
 ## Deploy ##
-https://github.com/wascoyur/employer-simpl/blob/main/crud-application/public/index.html
+
