@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/employer-simpl/crud-application/build/static/css/main.feaa29f8.chunk.css",
-    "main.js": "/employer-simpl/crud-application/build/static/js/main.a743526f.chunk.js",
-    "main.js.map": "/employer-simpl/crud-application/build/static/js/main.a743526f.chunk.js.map",
+    "main.js": "/employer-simpl/crud-application/build/static/js/main.86ab8605.chunk.js",
+    "main.js.map": "/employer-simpl/crud-application/build/static/js/main.86ab8605.chunk.js.map",
     "runtime-main.js": "/employer-simpl/crud-application/build/static/js/runtime-main.a1c1564f.js",
     "runtime-main.js.map": "/employer-simpl/crud-application/build/static/js/runtime-main.a1c1564f.js.map",
-    "static/js/2.ef69bab7.chunk.js": "/employer-simpl/crud-application/build/static/js/2.ef69bab7.chunk.js",
-    "static/js/2.ef69bab7.chunk.js.map": "/employer-simpl/crud-application/build/static/js/2.ef69bab7.chunk.js.map",
+    "static/js/2.fca26026.chunk.js": "/employer-simpl/crud-application/build/static/js/2.fca26026.chunk.js",
+    "static/js/2.fca26026.chunk.js.map": "/employer-simpl/crud-application/build/static/js/2.fca26026.chunk.js.map",
     "index.html": "/employer-simpl/crud-application/build/index.html",
     "static/css/main.feaa29f8.chunk.css.map": "/employer-simpl/crud-application/build/static/css/main.feaa29f8.chunk.css.map",
-    "static/js/2.ef69bab7.chunk.js.LICENSE.txt": "/employer-simpl/crud-application/build/static/js/2.ef69bab7.chunk.js.LICENSE.txt"
+    "static/js/2.fca26026.chunk.js.LICENSE.txt": "/employer-simpl/crud-application/build/static/js/2.fca26026.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.a1c1564f.js",
-    "static/js/2.ef69bab7.chunk.js",
+    "static/js/2.fca26026.chunk.js",
     "static/css/main.feaa29f8.chunk.css",
-    "static/js/main.a743526f.chunk.js"
+    "static/js/main.86ab8605.chunk.js"
   ]
 }
