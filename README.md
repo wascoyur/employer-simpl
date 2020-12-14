@@ -13,4 +13,3 @@ SQL
 перейти в директорию crud-application, в командной строке запустить npm install (Node.js должен быть уже установлен)
 приложение откроется автоматически на localhost:3000
 ## Deploy ##
-https://github.com/wascoyur/employer-simpl/blob/main/crud-application/public/index.html
