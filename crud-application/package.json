@@ -2,6 +2,7 @@
   "name": "test-simple",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://wascoyur.github.io/employer-simpl/crud-application/build/",
   "dependencies": {
     "axios": "0.21.0",
     "body-parser": "^1.19.0",
