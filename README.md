@@ -13,4 +13,4 @@ SQL
 перейти в директорию crud-application, в командной строке запустить npm install (Node.js должен быть уже установлен)
 приложение откроется автоматически на localhost:3000
 ## Deploy ##
-https://csb-4tpuh.netlify.app/
+https://github.com/wascoyur/employer-simpl/blob/main/crud-application/public/index.html
