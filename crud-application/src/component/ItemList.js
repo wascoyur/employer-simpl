@@ -161,12 +161,7 @@ export default class ItemList extends Component{
                 </label>{" "}
                 {currentEntity.children}
               </div>
-              <div>
-                <label>
-                  <strong>Статус:</strong>
-                </label>{" "}
-                {currentEntity.published ? "Published" : "Pending"}
-              </div>
+              
               <div>
                 <label>
                   <strong>Дата создания:</strong>
@@ -181,6 +176,7 @@ export default class ItemList extends Component{
               </div>
             
               <Link
+                current = {this.state.currentEntity}
                 to={"/edit/" + currentEntity.name}
                 className="badge badge-warning"
                 

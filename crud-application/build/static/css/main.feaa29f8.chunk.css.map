@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/component/header.css","webpack://src/index.css"],"names":[],"mappings":"AAAA,UACA,cACA,CCFA,KACI,YACJ","file":"main.feaa29f8.chunk.css","sourcesContent":[".nav-item{\r\npadding: 0 2rem 0 2rem;\r\n}","body{\r\n    padding: 1rem 1rem 1rem 1rem;\r\n}"]}
