@@ -1,6 +1,8 @@
-module.exports ={
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD:"",
-  DB: "crud_simple"
-}
+// Build a server with Node's HTTP module
+const http = require('http');
+const port = 3001;
+const server = http.createServer();
+
+server**on('request'** (request, response) => {
+
+})
